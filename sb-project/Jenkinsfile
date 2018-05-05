@@ -19,7 +19,8 @@ node {
    stage('Build docker image') {
         sh "cd sb-project && docker build . -t 'sb-project:latest' --no-cache"   
    }
-   stage('Run docker container') {
+   // TO DO In deploy job
+   /*stage('Run docker container') {
         sh "docker run -p 80:8080 sb-project:latest"   
-   }
+   }*/
 }
