@@ -8,10 +8,10 @@ node {
       // **       in the global configuration.           
       mvnHome = tool 'M3'
    }
-   /*stage('test') {
+   stage('test') {
          sh "cd sb-project && '${mvnHome}/bin/mvn' test"
      
-   }*/
+   }
    stage('Build') {
       // Run the maven build
          sh "cd sb-project && '${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
@@ -19,8 +19,5 @@ node {
    stage('Build docker image') {
         sh "cd sb-project && docker build . -t 'sb-project:latest' --no-cache"   
    }
-   // TO DO In deploy job
-   /*stage('Run docker container') {
-        sh "docker run -p 80:8080 sb-project:latest"   
-   }*/
+  
 }
